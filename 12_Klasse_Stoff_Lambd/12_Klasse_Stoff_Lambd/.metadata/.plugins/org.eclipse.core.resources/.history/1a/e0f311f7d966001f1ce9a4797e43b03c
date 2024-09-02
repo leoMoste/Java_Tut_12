@@ -1,0 +1,20 @@
+package _16_Kinokartenverwaltung;
+
+
+
+public class Main {
+
+	List<Karte> kartenListe = new ArrayList<>();
+
+    // Adding Karte objects to the ArrayList
+    kartenListe.add(new Karte(10, "Huber", true, true));
+    kartenListe.add(new Karte(11, "", false, false));
+    kartenListe.add(new Karte(20, "Maier", true, true));
+    kartenListe.add(new Karte(13, "", true, false));
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

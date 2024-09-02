@@ -1,0 +1,224 @@
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<Karte> klist = new ArrayList<Karte>();
+		klist.add(new Karte(10, "Huber", true, true));
+		klist.add(new Karte(11, "", false, false)); 
+		klist.add(new Karte(31, "", true, false)); 
+		klist.add(new Karte(35, "", true, false)); 
+		klist.add(new Karte(20, "Maier", true, true));
+
+        int menue, nummer; 
+        String name="";
+        boolean platzBesetzt = false;
+            
+        
+        
+        do
+        {
+           menue = Allgemein.eingabeInt("Karte Buchen (1) \nReservierungen verwalten(2)\nBeenden(0)\nIhre Wahl:", 0, 2);
+           
+
+           if(menue==1) {
+        	   System.out.println("Diese Pl tze k nnen gebucht werden:");
+        	   
+        	   print(klist, k-> k.isBelegbar() && !k.isVerkauft());
+        	   
+        	   nummer = Allgemein.eingabeInt("Welche Nummer m chten Sie buchen?");
+        	   for (Karte k :klist)
+               { 
+                   if (k.getNummer() == nummer && k.isBelegbar()&& !k.isVerkauft())
+                   {
+                       k.setVerkauft(true);
+                       name = Allgemein.eingabeString("Auf welchen Namen soll der Sitzplatz reserviert werden? ");
+                       k.setName(name);
+                   }
+               }
+        	   System.out.println("Auf Ihren Namen sind folgende Karten gebucht:");
+        	//Alternativ mit der Predicate-Methode--> Achtung Tricksen f r eine nahezu finale Variable
+        	//String name2=name;
+        	//print(klist,karte->karte.GetName().equals(name2));
+        	   
+        	   for (Karte k :klist)
+               {
+        		   if(k.getName().equals(name)) {
+        			   
+        			   k.print();
+        		   }
+               }
+        	     	 
+        	   
+           }
+           else if (menue ==2)
+            {
+        	   
+        	   System.out.println("Unsortiert");
+               
+               klist.forEach(k->k.print());
+               Collections.sort(klist, (k1,k2)-> {
+               	if(Boolean.compare(k1.isBelegbar(), k2.isBelegbar())==0){
+               	return Integer.compare(k1.getNummer(), k2.getNummer());}else {
+               		//negativ wenn erster Para false und zweiter True
+               		//positiv wenn erster True und zweiter false
+               		return Boolean.compare(k2.isBelegbar(), k1.isBelegbar());}
+               		
+               	}   );     	
+              
+               
+               System.out.println("Sortiert V1");
+               klist.forEach(Karte::print);
+               System.out.println("Sortiert V2");
+               klist.forEach(System.out::print);
+               
+            }
+           else {
+        	   System.out.println("Programm wird beendet!");
+           }
+           
+        } while (menue != 0);
+
+       
+    }
+	private static void print(ArrayList<Karte> list, Predicate<Karte> kriterium)
+	{
+		for(Karte i: list)
+		{
+			if( kriterium.test(i))
+			{
+				i.print();
+			}
+		}
+		System.out.println();
+	}
+
+
+
+}
+////////////////////////////////////////////////
+
+public class Karte {
+	private int nummer;
+    private String name;
+	private boolean belegbar;
+    private boolean verkauft;
+	
+  
+
+    public Karte(int nummer,String name, boolean belegbar, boolean verkauft) {
+    	
+    	this.belegbar=belegbar;
+    	this.verkauft=verkauft;
+    	this.name=name;
+    	this.nummer=nummer;
+    }
+	public void setBelegbar(boolean belegbar) {
+		this.belegbar = belegbar;
+	}
+	 
+	 public boolean isBelegbar() {
+		return belegbar;
+	}
+
+	public boolean isVerkauft() {
+		return verkauft;
+	}
+
+	public void setVerkauft(boolean verkauft) {
+		this.verkauft = verkauft;
+	}
+
+	public String toString()
+    {
+    	String val = belegbar ? "Belegbar" : "Nicht Belegbar";
+    	String val2 = verkauft ? "Verkauft" : "Frei";
+    
+       return ("Platznr.: " + nummer + "     Name: " + name + "     "+val + "     "+val2+"\n");
+      
+    }
+
+    public void print()
+    {
+    	String val = belegbar ? "Belegbar" : "Nicht Belegbar";
+    	String val2 = verkauft ? "Verkauft" : "Frei";
+    
+       System.out.println("Platznr.: " + nummer + "     Name: " + name + "     "+val + "     "+val2);
+    }
+
+    public void setNummer(int nummer)
+    {
+        this.nummer = nummer;
+    }
+    public int getNummer()
+    {
+        return nummer;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    public String getName()
+    {
+        return name;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class Allgemein {
+	public static int version = 1;
+	static Scanner s;
+
+    public static String eingabeString(String ausgabe)
+    {
+        String eingabe;
+
+       System.out.println(ausgabe);
+        s=new Scanner(System.in);
+        eingabe = s.nextLine();   
+
+        return eingabe;
+    }
+
+    
+    public static int eingabeInt(String ausgabe)
+    {
+        String eingabe;
+        int ergebnis=0;
+        do
+        {
+            eingabe = eingabeString(ausgabe);
+            try{
+            ergebnis= Integer.parseInt(eingabe);
+            }catch(NumberFormatException e)
+            {
+            	eingabe=null;
+            }
+        }
+        while (eingabe==null);
+        return ergebnis;
+    }
+    public static int eingabeInt(String ausgabe, int min, int max)
+    {
+        int ergebnis = 0;
+        do
+        {
+        	System.out.println("Ung ltige Eingabe!");
+            ergebnis = eingabeInt(ausgabe);
+        }
+        while (ergebnis < min || ergebnis > max);
+        return ergebnis;
+    }
+
+
+}
+

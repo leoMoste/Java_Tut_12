@@ -1,0 +1,11 @@
+package _08_Method_Reference;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// ::Method Reference::
+		// it is a short way to write a lambda exp
+
+	}
+
+}

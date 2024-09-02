@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+C:\Users\PC\Desktop\Programming Projects\12_Klasse_Stoff_Lambd\.metadata\.plugins\org.eclipse.jdt.core
+1223481332.index
+487685609.index
+3056452395.index
+1865797976.index
+3856605503.index
+1409322068.index

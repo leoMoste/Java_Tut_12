@@ -1,0 +1,40 @@
+package functionalInterface;
+
+import java.util.function.Function;
+
+public class _Function {
+	public static void main(String[] args) {
+	int incerement = increment(1);
+	
+		System.out.println(incerement);
+		
+		int incerement2 = incrementByOneFunction.apply(1);
+		
+		System.out.println(incerement2);
+		
+		int multipleBy10Func = multipleBy10.apply(1);
+		System.out.println(multipleBy10Func);
+		
+		Function<Integer, Integer> addBy1AndThenMultiplyBy10 =
+				incrementByOneFunction.andThen(multipleBy10);
+		
+		 int result = addBy1AndThenMultiplyBy10.apply(1);
+	        System.out.println(result);
+
+	}
+	
+	// this  and the below function are exact same thing 
+	     // "input Type", "retrun Type"
+	static Function<Integer, Integer> incrementByOneFunction = 
+			(number) -> number + 1; // this is functional styleway
+			
+	static Function<Integer, Integer> multipleBy10 = (number) ->
+					number * 10;
+	
+	// Function<T , R>: Represents a function that accepts one 
+	// argument and produce a result.
+	// and this function is pretty munch is the same concept
+	static int increment(int number) {
+		return number + 1;
+	}
+}

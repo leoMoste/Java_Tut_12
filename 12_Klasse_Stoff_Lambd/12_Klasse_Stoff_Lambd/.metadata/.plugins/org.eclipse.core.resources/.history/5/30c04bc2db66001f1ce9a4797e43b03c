@@ -1,0 +1,84 @@
+package _16_Kinokartenverwaltung;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+
+	static List<Karte> kartenListe = new ArrayList<>();
+
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Adding Karte objects to the ArrayList
+	    kartenListe.add(new Karte(10, "Huber", true, true));
+	    kartenListe.add(new Karte(11, "", false, false));
+	    kartenListe.add(new Karte(20, "Maier", true, true));
+	    kartenListe.add(new Karte(13, "", true, false));
+		
+	    Scanner scanner = new Scanner(System.in);
+        int choice;
+        do {
+            System.out.println("Bitte wählen: (1) Karte buchen, (2) Reservierungen verwalten, (0) Beenden");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    buchen(scanner);
+                    break;
+                case 2:
+                    verwalten();
+                    break;
+                case 0:
+                    System.out.println("Programm beendet.");
+                    break;
+                default:
+                    System.out.println("Ungültige Eingabe. Bitte erneut versuchen.");
+                    break;
+            }
+        } while (choice != 0);
+
+        scanner.close();
+	    
+	}
+
+	public static void buchen(Scanner scanner) {
+        System.out.println("Verfügbare Plätze:");
+       
+        kartenListe.stream()
+            .filter(karte -> karte.isBelegbar() && !karte.isVerkauft())
+            .forEach(Karte::print);
+
+        System.out.println("Bitte Platznummer eingeben:");
+        int nummer = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        Karte zuBuchendeKarte = null;
+        for (Karte karte : kartenListe) {
+            if (karte.getNummer() == nummer && karte.isBelegbar() && !karte.isVerkauft()) {
+                zuBuchendeKarte = karte;
+                break;
+            }
+        }
+
+        if (zuBuchendeKarte != null) {
+            System.out.println("Bitte Ihren Namen eingeben:");
+            String name = scanner.nextLine();
+            zuBuchendeKarte.setName(name);
+            zuBuchendeKarte.setVerkauft(true);
+            System.out.println("Karte erfolgreich gebucht!");
+            System.out.println("Ihre gebuchten Karten:");
+            kartenListe.stream()
+                .filter(karte -> karte.getName().equals(name))
+                .forEach(Karte::print);
+        } else {
+            System.out.println("Ungültige Platznummer oder Platz ist nicht verfügbar.");
+        }
+    }
+	
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Integer[] myIntegers = new Integer[] {10, 20, 22, 33, 50};
+
+	}
+
+}

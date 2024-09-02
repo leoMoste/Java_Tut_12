@@ -1,0 +1,14 @@
+package _10_Optionals;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//  Where to use Optional
+		//- Best Practice: in method returns.
+		// - to force Caller code to check for null.
+		//- Used With Streams / Functional Programming
+		 
+
+	}
+
+}

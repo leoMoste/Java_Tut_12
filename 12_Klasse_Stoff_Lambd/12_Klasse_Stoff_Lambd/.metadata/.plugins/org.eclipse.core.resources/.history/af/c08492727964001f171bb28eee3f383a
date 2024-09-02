@@ -1,0 +1,5 @@
+package _04_Java_Lambda;
+
+public interface MyInterface {
+
+}

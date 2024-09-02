@@ -1,0 +1,5 @@
+package _02_Inner_classes;
+
+public class Outside {
+
+}

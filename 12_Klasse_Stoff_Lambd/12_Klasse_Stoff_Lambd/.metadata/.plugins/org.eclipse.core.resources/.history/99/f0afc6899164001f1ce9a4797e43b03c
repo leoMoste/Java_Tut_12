@@ -1,0 +1,20 @@
+package _08_Method_Reference;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// ::Method Reference::
+		// it is a short way to write a lambda exp
+
+		/* A shorthand for Lambda Expression >
+		Lambda is a shorthand for Functional Interface
+		
+		It's a way to call the method and pass the
+		parameters in one short step
+
+		*/
+		
+		
+	}
+
+}

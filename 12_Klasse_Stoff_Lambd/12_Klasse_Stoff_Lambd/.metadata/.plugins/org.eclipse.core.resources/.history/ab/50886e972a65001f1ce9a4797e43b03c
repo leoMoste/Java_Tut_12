@@ -1,0 +1,25 @@
+package _10_Optionals;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//  Where to use Optional
+		//- Best Practice: in method returns.
+		// - to force Caller code to check for null.
+		//- Used With Streams / Functional Programming
+		 
+		/*
+		 * When NOT to use Optiona!!
+			
+			- Do NOT use in method arguments.
+			- Do NOT declare member variables as Optionals
+			- Optional does NOT implement Serializable
+			- Do NOT use in Constructor arguments,
+			- Do NOT use in Collections, lists.
+		  */
+		
+		
+
+	}
+
+}

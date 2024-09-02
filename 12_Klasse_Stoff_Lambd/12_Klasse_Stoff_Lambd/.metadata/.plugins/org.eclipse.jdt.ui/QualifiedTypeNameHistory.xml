@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="_02_Inner_classes.Outside.inside"/>
+    <fullyQualifiedTypeName name="_02_Inner_classes.Outside.Inside"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="_05_Interface_DefaultMethods.Fly"/>
+    <fullyQualifiedTypeName name="_05_Interface_DefaultMethods.AirPlane"/>
+    <fullyQualifiedTypeName name="_05_Interface_DefaultMethods.IRun"/>
+    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="_06_Functional_Intrface.MyFunctionalInterface"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,15 @@
+
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Integer[] myIntegers = new Integer[] {10, 20, 22, 33, 50};
+
+			// Arrays.stream => this function will take my
+			// Array and create a stream from it 
+		Stream<Integer> myStream = Arrays.stream(myIntegers);
+	}
+
+}

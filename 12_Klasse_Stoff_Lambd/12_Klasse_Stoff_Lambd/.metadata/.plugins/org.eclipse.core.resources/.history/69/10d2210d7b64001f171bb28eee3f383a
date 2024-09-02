@@ -1,0 +1,8 @@
+package _04_Java_Lambda;
+
+@FunctionalInterface
+public interface MyInterface {
+	
+	public void message();
+
+}

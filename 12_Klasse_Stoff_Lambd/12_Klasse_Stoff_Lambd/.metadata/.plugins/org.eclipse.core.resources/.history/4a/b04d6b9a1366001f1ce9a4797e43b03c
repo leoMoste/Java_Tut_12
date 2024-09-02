@@ -1,0 +1,12 @@
+package _14_SortierenVonPerson;
+
+public class Main {
+	
+	static Person[] students = {new Person("Zach", 180, "Mann"), new Person("Tim", 177, "Mann"), new Person("Ann", 168, "Frau")};
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

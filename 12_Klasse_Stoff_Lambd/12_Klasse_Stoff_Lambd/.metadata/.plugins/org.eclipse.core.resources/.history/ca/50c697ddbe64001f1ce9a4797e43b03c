@@ -1,0 +1,35 @@
+package _08_Method_Reference;
+
+public class MethodReferenceEx {
+	
+	public String concatTwice(String x, String y) {
+		return x + y + y;
+	}
+	
+	/*
+	 * First Type of Method Refernce (instance with parameters)
+	 * */
+	
+	public void greetMe(String me) {
+		System.out.println("Greeting, " + me.toUpperCase());
+	}
+	
+	
+	public void greetHim(String me) {
+		System.out.println("Welcome, " + me);
+	}
+	
+	
+
+	public boolean isMyFriend(String x) {
+		
+		if("Ahmad".equalsIgnoreCase(x) || "Ali".equalsIgnoreCase(x)) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	
+}

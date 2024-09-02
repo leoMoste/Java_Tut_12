@@ -1,0 +1,10 @@
+package Stream_Collectors;
+public class Main {
+
+	public static void main(String[] args) {
+		// Collector is the interface that define the general collector (4 Methods).
+		// Collectors is a class that contains a lot of ready to use collectors like
+
+	}
+
+}

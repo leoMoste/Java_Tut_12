@@ -1,0 +1,35 @@
+package _14_SortierenVonPerson;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Main {
+	
+	static Person[] Persons = {new Person("Zach", 180, "Mann"), new Person("Tim", 177, "Mann"), new Person("Ann", 168, "Frau")};
+
+	public static void main(String[] args) {
+		SortNachKoerperGroesse();
+		
+		 for (Person person : Persons) {
+		        System.out.println(person);
+		 }
+
+	}
+	
+	/*
+	 * No Need to Implement Comparator: If you're only using the comparison logic in a single place (like within 
+	 * the SortNachKoerperGroesse method), the lambda expression is sufficient, and you don't need to implement 
+	 * the Comparator interface explicitly.
+	 * */
+	public static void SortNachKoerperGroesse() {
+		Arrays.sort(Persons, Comparator.comparingInt((Person p) -> p.koerpergroesse));
+		
+	}
+	
+	public static void SortNachKoerperGroesseAbsteigend() {
+	    Arrays.sort(Persons, Comparator.comparingInt((Person p) -> p.koerpergroesse).reversed());
+	}
+	
+	
+
+}

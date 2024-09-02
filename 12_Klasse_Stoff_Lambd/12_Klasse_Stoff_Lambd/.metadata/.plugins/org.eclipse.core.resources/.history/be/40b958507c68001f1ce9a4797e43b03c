@@ -1,0 +1,30 @@
+package functionalInterface;
+
+public class _Consumer {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+	static void greetCustomer(Customer customer) {
+		System.out.println("Hello" + customer.customePhoneNumber);
+	}
+	
+	
+	static class Customer {
+		private String customerName ;
+		private String customePhoneNumber ;
+		
+		
+		public Customer(String customerName, String customePhoneNumber) {
+			this.customerName = customerName;
+			this.customePhoneNumber = customePhoneNumber;
+		}
+		
+		
+		
+		
+	}
+
+}
