@@ -1,0 +1,14 @@
+package functionalInterface;
+
+public class _Supplier {
+
+	public static void main(String[] args) {
+		
+		System.out.println(getDbConnectionUrl());
+	}
+	
+	static String getDbConnectionUrl() {
+		return "jdbc://localhost:5432/users";
+	}
+
+}
