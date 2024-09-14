@@ -1,5 +1,0 @@
-package _05_Interface_DefaultMethods;
-
-public interface Fly {
-
-}

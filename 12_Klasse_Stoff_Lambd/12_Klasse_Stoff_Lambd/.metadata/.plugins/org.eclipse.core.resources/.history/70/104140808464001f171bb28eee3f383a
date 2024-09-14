@@ -1,5 +1,0 @@
-package _06_Functional_Intrface;
-
-public interface MyFunctionalInterface {
-
-}

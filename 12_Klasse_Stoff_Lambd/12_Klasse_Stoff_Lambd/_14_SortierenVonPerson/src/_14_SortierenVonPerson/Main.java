@@ -5,17 +5,40 @@ import java.util.Comparator;
 
 public class Main {
 	
-	static Person[] Persons = {new Person("Zach", 180, "Mann"), new Person("Tim", 177, "Mann"), new Person("Ann", 168, "Frau")};
+	static Person[] Persons = {
+			new Person("Zach", 180, "Mann"),
+			new Person("Tim", 177, "Mann"),
+			new Person("Ann", 168, "Frau")};
 
 	public static void main(String[] args) {
 		//SortNachKoerperGroesse();
 		//SortNachKoerperGroesseAbsteigend();
 		//SortNachNamen();
-		SortNachGeschlechtUndNamen();
-		 for (Person person : Persons) {
+		//SortNachGeschlechtUndNamen();
+		/* for (Person person : Persons) {
 		        System.out.println(person);
 		 }
+		 */
+		
+		Arrays.sort(Persons, (Person p1, Person p2)-> {
+			
+			  return p1.getName().compareTo(p2.getName());  
+		});
 
+		/*for (Person person : Persons) {
+	        System.out.println(person);
+		}*/
+		
+		Arrays.sort(Persons, (p1,p2)-> 
+			Integer.compare(p2.getKoerpergroesse(), p1.getKoerpergroesse())
+		);
+		
+		for (Person person : Persons) {
+	        System.out.println(person);
+		}
+		
+		
+		
 	}
 	
 	/*
@@ -40,7 +63,10 @@ public class Main {
 	}
 	
 	public static void SortNachGeschlechtUndNamen() {
-	    Arrays.sort(Persons, Comparator.comparing((Person p) -> p.geschlecht).thenComparing((Person p) -> p.name));
+	    Arrays.sort(Persons, Comparator.comparing(
+	    		(Person p) -> p.geschlecht)
+	    		.thenComparing((Person p) -> p.name)
+	    );
 	}
 	
 
