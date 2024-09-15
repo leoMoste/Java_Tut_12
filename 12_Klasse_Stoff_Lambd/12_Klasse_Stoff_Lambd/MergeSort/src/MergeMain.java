@@ -1,6 +1,7 @@
 
 public class MergeMain {
 
+	// best use with Linked list DS
 	// Divide-and-conquer => Merge
 	public static void main(String[] args) {
 		
@@ -36,7 +37,7 @@ public class MergeMain {
 
         // Merge the temporary arrays back into arr[l..r]
         int i = 0, j = 0;
-        int k = l; // Initial index of the merged subarray
+        int k = l; // Left Initial index of the merged subarray
 
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
